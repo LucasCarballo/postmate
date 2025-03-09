@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { parseUrl } from '../utils/httpClient';
+import JSONViewer from './JSONViewer';
 import '../styles/RequestPanel.css';
 
 const RequestPanel = ({ request, onSendRequest }) => {
@@ -489,11 +490,11 @@ const RequestPanel = ({ request, onSendRequest }) => {
             {bodyType !== 'none' && (
               <div className="body-editor-container">
                 {bodyType === 'json' ? (
-                  <textarea 
-                    className="json-editor"
-                    value={bodyContent}
-                    onChange={(e) => setBodyContent(e.target.value)}
-                    placeholder="Enter JSON body content"
+                  <JSONViewer 
+                    data={bodyContent}
+                    readOnly={false}
+                    onChange={(data) => setBodyContent(JSON.stringify(data))}
+                    height="100%" 
                   />
                 ) : (
                   <textarea 

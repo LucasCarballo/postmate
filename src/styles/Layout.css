@@ -82,28 +82,70 @@
   width: var(--sidebar-width);
   background-color: var(--color-surface);
   overflow-y: auto;
+  position: relative;
 }
 
 .content-container {
   display: flex;
   flex: 1;
   overflow: hidden;
+}
+
+.vertical-panels {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
   gap: var(--spacing-md);
 }
 
-.main-content {
-  flex: 2;
-  overflow-y: auto;
-  background-color: var(--color-surface);
-  min-width: 0; /* Ensure content can shrink */
+.vertical-panels-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
 }
 
-.right-panel {
+.request-panel-container {
+  border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+  min-height: 150px;
+  max-height: 60%;
+  /* Using flex-shrink allows the panel to shrink to fit content */
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.response-panel-container {
   flex: 1;
-  min-width: 300px;
-  max-width: 500px;
-  background-color: var(--color-surface);
-  overflow-y: auto;
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Resize handles */
+.resize-handle {
+  position: absolute;
+  z-index: 100;
+  transition: background-color 0.2s ease;
+}
+
+.horizontal-resize-handle {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  cursor: ns-resize;
+  background-color: var(--color-border);
+}
+
+.horizontal-resize-handle:hover,
+.horizontal-resize-handle:active {
+  background-color: var(--color-primary);
 }
 
 .footer {
@@ -171,8 +213,10 @@
   .content-container {
     flex-direction: column;
   }
-  
-  .right-panel {
-    max-width: none;
-  }
+}
+
+/* Prevent text selection during resizing */
+body.resizing {
+  user-select: none;
+  cursor: ns-resize;
 }

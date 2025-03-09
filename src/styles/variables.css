@@ -9,10 +9,14 @@
   --color-secondary: #10B981;
   --color-secondary-light: #34D399;
   --color-secondary-dark: #059669;
+  --color-secondary-subtle: rgba(16, 185, 129, 0.1);
   
   --color-error: #EF4444;
+  --color-error-subtle: rgba(239, 68, 68, 0.1);
   --color-warning: #F59E0B;
+  --color-warning-subtle: rgba(245, 158, 11, 0.1);
   --color-success: #22C55E;
+  --color-success-subtle: rgba(34, 197, 94, 0.1);
   
   /* HTTP Method Colors */
   --color-method-get: #61affe;
@@ -29,6 +33,8 @@
   /* Neutral Colors */
   --color-background: #F9FAFB;
   --color-surface: #FFFFFF;
+  --color-surface-hover: #F8FAFC;
+  --color-surface-muted: #F3F4F6;
   --color-border: #E5E7EB;
   --color-divider: #F3F4F6;
   
@@ -40,7 +46,6 @@
   --color-text-muted: #94A3B8;
   
   /* UI Colors */
-  --color-surface-hover: #F8FAFC;
   --color-danger-light: rgba(239, 68, 68, 0.1);
   --color-danger: #EF4444;
   
