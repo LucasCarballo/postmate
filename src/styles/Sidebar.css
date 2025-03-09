@@ -2,125 +2,172 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: var(--sidebar-background, var(--surface-color));
+  border-right: 1px solid var(--border-color);
 }
 
 .sidebar-header {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
-  gap: 8px;
+  gap: var(--spacing-md);
 }
 
 .primary-button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
   flex: 1;
-  padding: 8px;
-  border-radius: 4px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
   font-weight: 500;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  transition: background-color 0.2s ease;
 }
 
 .primary-button:hover {
-  background-color: #0069d9;
+  background-color: var(--primary-color-hover);
 }
 
 .secondary-button {
-  background-color: #6c757d;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
   flex: 1;
-  padding: 8px;
-  border-radius: 4px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
   font-weight: 500;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  transition: background-color 0.2s ease;
 }
 
 .secondary-button:hover {
-  background-color: #5a6268;
+  background-color: var(--secondary-color-hover);
 }
 
 .collections-container {
   flex: 1;
   overflow-y: auto;
-  padding: 12px;
+  padding: var(--spacing-lg);
 }
 
 .empty-collections {
-  color: #888;
+  color: var(--text-tertiary-color);
   text-align: center;
-  padding: 24px 12px;
+  padding: var(--spacing-xl);
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.empty-collections svg {
+  opacity: 0.7;
+  margin-bottom: var(--spacing-md);
+  width: 48px;
+  height: 48px;
+}
+
+.hint-text {
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
 .collection {
-  margin-bottom: 16px;
-  border-radius: 4px;
-  border: 1px solid #eee;
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
   overflow: hidden;
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .collection.selected {
-  border-color: #007bff;
+  border-color: var(--primary-color);
 }
 
 .collection-header {
-  font-weight: 600;
-  padding: 8px 10px;
-  color: #333;
-  background-color: #f8f9fa;
+  font-weight: 500;
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--text-color);
+  background-color: var(--surface-color-alt);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .collection-header:hover {
-  background-color: #e9ecef;
+  background-color: var(--surface-color-hover);
+}
+
+.collection-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
 }
 
 .add-request-button {
   background-color: transparent;
   border: none;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  color: #6c757d;
+  color: var(--text-secondary-color);
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .add-request-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #007bff;
+  background-color: var(--primary-color-transparent);
+  color: var(--primary-color);
+}
+
+.collection-items {
+  padding: var(--spacing-md) 0;
 }
 
 .collection-folder {
-  margin: 4px 0;
+  margin: var(--spacing-sm) 0;
 }
 
 .folder-header {
   display: flex;
   align-items: center;
-  padding: 6px 4px;
+  padding: var(--spacing-sm) var(--spacing-lg);
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.2s ease;
+  color: var(--text-secondary-color);
+  position: relative;
 }
 
 .folder-header:hover {
-  background-color: #e9e9e9;
+  background-color: var(--surface-color-hover);
+  color: var(--text-color);
 }
 
 .folder-icon {
-  font-size: 10px;
-  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: var(--spacing-md);
   transition: transform 0.2s;
-  display: inline-block;
-  width: 10px;
 }
 
 .folder-icon.expanded {
@@ -129,47 +176,69 @@
 
 .folder-name {
   font-weight: 500;
+  flex: 1;
+}
+
+.item-count {
+  font-size: 0.7rem;
+  background-color: var(--background-color);
+  color: var(--text-tertiary-color);
+  padding: 3px 8px;
+  border-radius: 10px;
 }
 
 .folder-content {
-  padding-left: 16px;
+  padding-left: var(--spacing-xl);
 }
 
 .collection-request {
   display: flex;
   align-items: center;
-  padding: 6px 4px;
+  padding: var(--spacing-sm) var(--spacing-lg);
   cursor: pointer;
-  border-radius: 4px;
-  margin: 2px 0;
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-sm) 0;
+  transition: background-color 0.2s ease;
 }
 
 .collection-request:hover {
-  background-color: #e9e9e9;
+  background-color: var(--surface-color-hover);
 }
 
 .request-method {
-  font-size: 11px;
-  padding: 2px 4px;
-  border-radius: 3px;
-  margin-right: 8px;
-  width: 50px;
+  font-size: 0.7rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin-right: var(--spacing-md);
+  width: 55px;
   text-align: center;
   font-weight: 600;
-  background-color: #4CAF50;
-  color: white;
+  font-family: var(--font-mono);
 }
 
-.collection-request:has(.request-method:contains('POST')) .request-method {
-  background-color: #FF9800;
+.method-get {
+  background-color: var(--get-color-bg);
+  color: var(--get-color);
 }
 
-.collection-request:has(.request-method:contains('PUT')) .request-method {
-  background-color: #2196F3;
+.method-post {
+  background-color: var(--post-color-bg);
+  color: var(--post-color);
 }
 
-.collection-request:has(.request-method:contains('DELETE')) .request-method {
-  background-color: #F44336;
+.method-put {
+  background-color: var(--put-color-bg);
+  color: var(--put-color);
+}
+
+.method-delete {
+  background-color: var(--delete-color-bg);
+  color: var(--delete-color);
+}
+
+.method-patch {
+  background-color: var(--patch-color-bg);
+  color: var(--patch-color);
 }
 
 .request-name {
@@ -177,4 +246,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 0.9rem;
+  color: var(--text-color);
 }
